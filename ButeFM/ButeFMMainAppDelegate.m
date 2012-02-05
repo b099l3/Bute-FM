@@ -11,13 +11,26 @@
 @implementation ButeFMMainAppDelegate
 
 @synthesize window = _window;
+@synthesize navigationController = _navigationController;
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    _navigationController.delegate = self;
+    
+    // Add the navigation controller's view to the window and display.
+    [self.window addSubview:_navigationController.view];
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
-							
+
+- (void)navigationController:(UINavigationController *)navController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    if ([viewController respondsToSelector:@selector(willAppearIn:)])
+        [viewController performSelector:@selector(willAppearIn:) withObject:navController];
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     /*

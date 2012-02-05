@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ButeFMMainAppDelegate : UIResponder <UIApplicationDelegate>
+@interface ButeFMMainAppDelegate : NSObject <UIApplicationDelegate, UINavigationControllerDelegate>
+{
+    UIWindow *window;
+    UINavigationController *navigationController;
+}
 
-@property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, retain) IBOutlet UIWindow *window;
+@property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
 
 @end

@@ -21,6 +21,21 @@
 		BF15FD9214B3AFA80032D42E /* ButeFMMainSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF15FD9114B3AFA80032D42E /* ButeFMMainSecondViewController.m */; };
 		BF15FD9414B3AFA80032D42E /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = BF15FD9314B3AFA80032D42E /* second.png */; };
 		BF15FD9614B3AFA80032D42E /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF15FD9514B3AFA80032D42E /* second@2x.png */; };
+		BF15FDA914B3E3730032D42E /* 112-group.png in Resources */ = {isa = PBXBuildFile; fileRef = BF15FD9C14B3E3720032D42E /* 112-group.png */; };
+		BF15FDAA14B3E3740032D42E /* 112-group@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF15FD9D14B3E3720032D42E /* 112-group@2x.png */; };
+		BF15FDAB14B3E3740032D42E /* buteFMButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BF15FD9E14B3E3720032D42E /* buteFMButton.png */; };
+		BF15FDAC14B3E3740032D42E /* buteFMButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF15FD9F14B3E3730032D42E /* buteFMButton@2x.png */; };
+		BF15FDAD14B3E3740032D42E /* buteFMButton@2x.psd in Resources */ = {isa = PBXBuildFile; fileRef = BF15FDA014B3E3730032D42E /* buteFMButton@2x.psd */; };
+		BF15FDAE14B3E3740032D42E /* buteFMButtonH.png in Resources */ = {isa = PBXBuildFile; fileRef = BF15FDA114B3E3730032D42E /* buteFMButtonH.png */; };
+		BF15FDAF14B3E3740032D42E /* buteFMButtonH@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF15FDA214B3E3730032D42E /* buteFMButtonH@2x.png */; };
+		BF15FDB014B3E3740032D42E /* news.png in Resources */ = {isa = PBXBuildFile; fileRef = BF15FDA314B3E3730032D42E /* news.png */; };
+		BF15FDB114B3E3740032D42E /* news@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF15FDA414B3E3730032D42E /* news@2x.png */; };
+		BF15FDB214B3E3740032D42E /* schedule.png in Resources */ = {isa = PBXBuildFile; fileRef = BF15FDA514B3E3730032D42E /* schedule.png */; };
+		BF15FDB314B3E3740032D42E /* schedule@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF15FDA614B3E3730032D42E /* schedule@2x.png */; };
+		BF15FDB414B3E3740032D42E /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = BF15FDA714B3E3730032D42E /* settings.png */; };
+		BF15FDB514B3E3740032D42E /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF15FDA814B3E3730032D42E /* settings@2x.png */; };
+		BF15FDBE14B3E3940032D42E /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF15FDB714B3E3930032D42E /* BaseViewController.m */; };
+		BF15FDBF14B3E3940032D42E /* InstagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF15FDB914B3E3940032D42E /* InstagramViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,22 +43,39 @@
 		BF15FD7114B3AFA80032D42E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BF15FD7314B3AFA80032D42E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BF15FD7514B3AFA80032D42E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		BF15FD7914B3AFA80032D42E /* ButeFM-Info.plist */ = {isa = PBXFileReference; path = "ButeFM-Info.plist"; sourceTree = "<group>"; };
+		BF15FD7914B3AFA80032D42E /* ButeFM-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ButeFM-Info.plist"; sourceTree = "<group>"; };
 		BF15FD7B14B3AFA80032D42E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BF15FD7D14B3AFA80032D42E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		BF15FD7F14B3AFA80032D42E /* ButeFM-Prefix.pch */ = {isa = PBXFileReference; path = "ButeFM-Prefix.pch"; sourceTree = "<group>"; };
-		BF15FD8014B3AFA80032D42E /* ButeFMMainAppDelegate.h */ = {isa = PBXFileReference; path = ButeFMMainAppDelegate.h; sourceTree = "<group>"; };
+		BF15FD7F14B3AFA80032D42E /* ButeFM-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ButeFM-Prefix.pch"; sourceTree = "<group>"; };
+		BF15FD8014B3AFA80032D42E /* ButeFMMainAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButeFMMainAppDelegate.h; sourceTree = "<group>"; };
 		BF15FD8114B3AFA80032D42E /* ButeFMMainAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ButeFMMainAppDelegate.m; sourceTree = "<group>"; };
 		BF15FD8414B3AFA80032D42E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		BF15FD8714B3AFA80032D42E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		BF15FD8914B3AFA80032D42E /* ButeFMMainFirstViewController.h */ = {isa = PBXFileReference; path = ButeFMMainFirstViewController.h; sourceTree = "<group>"; };
+		BF15FD8914B3AFA80032D42E /* ButeFMMainFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButeFMMainFirstViewController.h; sourceTree = "<group>"; };
 		BF15FD8A14B3AFA80032D42E /* ButeFMMainFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ButeFMMainFirstViewController.m; sourceTree = "<group>"; };
 		BF15FD8C14B3AFA80032D42E /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		BF15FD8E14B3AFA80032D42E /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		BF15FD9014B3AFA80032D42E /* ButeFMMainSecondViewController.h */ = {isa = PBXFileReference; path = ButeFMMainSecondViewController.h; sourceTree = "<group>"; };
+		BF15FD9014B3AFA80032D42E /* ButeFMMainSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButeFMMainSecondViewController.h; sourceTree = "<group>"; };
 		BF15FD9114B3AFA80032D42E /* ButeFMMainSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ButeFMMainSecondViewController.m; sourceTree = "<group>"; };
 		BF15FD9314B3AFA80032D42E /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		BF15FD9514B3AFA80032D42E /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		BF15FD9C14B3E3720032D42E /* 112-group.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "112-group.png"; sourceTree = "<group>"; };
+		BF15FD9D14B3E3720032D42E /* 112-group@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "112-group@2x.png"; sourceTree = "<group>"; };
+		BF15FD9E14B3E3720032D42E /* buteFMButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buteFMButton.png; sourceTree = "<group>"; };
+		BF15FD9F14B3E3730032D42E /* buteFMButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buteFMButton@2x.png"; sourceTree = "<group>"; };
+		BF15FDA014B3E3730032D42E /* buteFMButton@2x.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "buteFMButton@2x.psd"; sourceTree = "<group>"; };
+		BF15FDA114B3E3730032D42E /* buteFMButtonH.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buteFMButtonH.png; sourceTree = "<group>"; };
+		BF15FDA214B3E3730032D42E /* buteFMButtonH@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buteFMButtonH@2x.png"; sourceTree = "<group>"; };
+		BF15FDA314B3E3730032D42E /* news.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = news.png; sourceTree = "<group>"; };
+		BF15FDA414B3E3730032D42E /* news@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "news@2x.png"; sourceTree = "<group>"; };
+		BF15FDA514B3E3730032D42E /* schedule.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = schedule.png; sourceTree = "<group>"; };
+		BF15FDA614B3E3730032D42E /* schedule@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "schedule@2x.png"; sourceTree = "<group>"; };
+		BF15FDA714B3E3730032D42E /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		BF15FDA814B3E3730032D42E /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
+		BF15FDB614B3E3930032D42E /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		BF15FDB714B3E3930032D42E /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		BF15FDB814B3E3930032D42E /* InstagramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramViewController.h; sourceTree = "<group>"; };
+		BF15FDB914B3E3940032D42E /* InstagramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +122,23 @@
 		BF15FD7714B3AFA80032D42E /* ButeFM */ = {
 			isa = PBXGroup;
 			children = (
+				BF15FDB614B3E3930032D42E /* BaseViewController.h */,
+				BF15FDB714B3E3930032D42E /* BaseViewController.m */,
+				BF15FDB814B3E3930032D42E /* InstagramViewController.h */,
+				BF15FDB914B3E3940032D42E /* InstagramViewController.m */,
+				BF15FD9C14B3E3720032D42E /* 112-group.png */,
+				BF15FD9D14B3E3720032D42E /* 112-group@2x.png */,
+				BF15FD9E14B3E3720032D42E /* buteFMButton.png */,
+				BF15FD9F14B3E3730032D42E /* buteFMButton@2x.png */,
+				BF15FDA014B3E3730032D42E /* buteFMButton@2x.psd */,
+				BF15FDA114B3E3730032D42E /* buteFMButtonH.png */,
+				BF15FDA214B3E3730032D42E /* buteFMButtonH@2x.png */,
+				BF15FDA314B3E3730032D42E /* news.png */,
+				BF15FDA414B3E3730032D42E /* news@2x.png */,
+				BF15FDA514B3E3730032D42E /* schedule.png */,
+				BF15FDA614B3E3730032D42E /* schedule@2x.png */,
+				BF15FDA714B3E3730032D42E /* settings.png */,
+				BF15FDA814B3E3730032D42E /* settings@2x.png */,
 				BF15FD8014B3AFA80032D42E /* ButeFMMainAppDelegate.h */,
 				BF15FD8114B3AFA80032D42E /* ButeFMMainAppDelegate.m */,
 				BF15FD8314B3AFA80032D42E /* MainStoryboard_iPhone.storyboard */,
@@ -176,6 +225,19 @@
 				BF15FD8F14B3AFA80032D42E /* first@2x.png in Resources */,
 				BF15FD9414B3AFA80032D42E /* second.png in Resources */,
 				BF15FD9614B3AFA80032D42E /* second@2x.png in Resources */,
+				BF15FDA914B3E3730032D42E /* 112-group.png in Resources */,
+				BF15FDAA14B3E3740032D42E /* 112-group@2x.png in Resources */,
+				BF15FDAB14B3E3740032D42E /* buteFMButton.png in Resources */,
+				BF15FDAC14B3E3740032D42E /* buteFMButton@2x.png in Resources */,
+				BF15FDAD14B3E3740032D42E /* buteFMButton@2x.psd in Resources */,
+				BF15FDAE14B3E3740032D42E /* buteFMButtonH.png in Resources */,
+				BF15FDAF14B3E3740032D42E /* buteFMButtonH@2x.png in Resources */,
+				BF15FDB014B3E3740032D42E /* news.png in Resources */,
+				BF15FDB114B3E3740032D42E /* news@2x.png in Resources */,
+				BF15FDB214B3E3740032D42E /* schedule.png in Resources */,
+				BF15FDB314B3E3740032D42E /* schedule@2x.png in Resources */,
+				BF15FDB414B3E3740032D42E /* settings.png in Resources */,
+				BF15FDB514B3E3740032D42E /* settings@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +252,8 @@
 				BF15FD8214B3AFA80032D42E /* ButeFMMainAppDelegate.m in Sources */,
 				BF15FD8B14B3AFA80032D42E /* ButeFMMainFirstViewController.m in Sources */,
 				BF15FD9214B3AFA80032D42E /* ButeFMMainSecondViewController.m in Sources */,
+				BF15FDBE14B3E3940032D42E /* BaseViewController.m in Sources */,
+				BF15FDBF14B3E3940032D42E /* InstagramViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +375,7 @@
 				BF15FD9B14B3AFA80032D42E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
