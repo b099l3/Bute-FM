@@ -33,17 +33,19 @@
 {
   [super viewDidLoad];
 
-  self.viewControllers = [NSArray arrayWithObjects:
-                            [self viewControllerWithTabTitle:@"Contact Us" image:[UIImage imageNamed:@"112-group.png"]],
-                            [self viewControllerWithTabTitle:@"Schedule" image:[UIImage imageNamed:@"schedule.png"]],
-                            [self viewControllerWithTabTitle:@"" image:nil],
-                            [self viewControllerWithTabTitle:@"Game" image:[UIImage imageNamed:@"news.png"]],
-                            [self viewControllerWithTabTitle:@"Settings" image:[UIImage imageNamed:@"settings.png"]], nil];
-    
+// self.viewControllers = [NSArray arrayWithObjects:
+//                            [self viewControllerWithTabTitle:@"Contact Us" image:[UIImage imageNamed:@"112-group.png"]],
+//                            [self viewControllerWithTabTitle:@"Schedule" image:[UIImage imageNamed:@"schedule.png"]],
+//                            [self viewControllerWithTabTitle:@"" image:nil],
+//                            [self viewControllerWithTabTitle:@"Game" image:[UIImage imageNamed:@"news.png"]],
+//                            [self viewControllerWithTabTitle:@"Settings" image:[UIImage imageNamed:@"settings.png"]], nil];
+//    
     [self addCenterButtonWithImage:[UIImage imageNamed:@"buteFMButton.png"] highlightImage:[UIImage imageNamed:@"buteFMButtonH.png"]];
     
     
-    self.tabBar.selectedImageTintColor = [UIColor orangeColor];
+    self.tabBar.selectedImageTintColor = [UIColor colorWithRed:1.0 green:0.5 blue:05 alpha:1.0];
 }
+
+
 
 @end

@@ -55,9 +55,12 @@
     center.y = center.y - heightDifference/2.0;
     button.center = center;
   }
-  
+
+   
   [self.view addSubview:button];
 }
+
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

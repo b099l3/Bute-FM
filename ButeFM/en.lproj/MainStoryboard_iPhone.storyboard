@@ -10,7 +10,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
                 <viewController title="Contact Us" id="2" customClass="ButeFMMainFirstViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="16">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="First View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="20">
@@ -34,14 +34,14 @@
                     <navigationItem key="navigationItem" id="X8J-ZZ-oSA"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="663" y="-334"/>
+            <point key="canvasLocation" x="643" y="-530"/>
         </scene>
         <scene sceneID="13">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
                 <viewController title="Second" id="3" customClass="ButeFMMainSecondViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="17">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="22">
@@ -64,7 +64,79 @@
                     <tabBarItem key="tabBarItem" title="Schedule" image="schedule.png" id="6"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="663" y="264"/>
+            <point key="canvasLocation" x="643" y="64"/>
+        </scene>
+        <scene sceneID="Zsw-sw-enE">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MOS-Ew-r1M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="7Qp-Vg-pWY" customClass="ButeFMMainThirdVeiwController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="S8h-Be-Tuy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="3rd View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="inu-Sp-1Hz">
+                                <rect key="frame" x="54" y="104" width="212" height="43"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" enabled="NO" title="" image="nil" id="Ykd-DQ-GhE"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="643" y="663"/>
+        </scene>
+        <scene sceneID="oCC-EQ-WBM">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GuP-Iq-Rbf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="3UR-RL-BJS" customClass="ButeFMMainFourthViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lhI-ZD-Lie">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="4th View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="Taw-FY-3qQ">
+                                <rect key="frame" x="54" y="139" width="212" height="43"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Game" image="news.png" id="qxl-Rc-t0t"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="650" y="1255"/>
+        </scene>
+        <scene sceneID="i6y-ps-zCd">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HPJ-zZ-YA7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="t9N-Ih-XWg" customClass="ButeFMMainFifthViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qzO-iA-YJN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="5th View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="a4h-sv-NVY">
+                                <rect key="frame" x="54" y="148" width="212" height="43"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings.png" id="gIO-kS-kzq"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="643" y="1855"/>
         </scene>
         <scene sceneID="15">
             <objects>
@@ -79,30 +151,22 @@
                     <connections>
                         <segue destination="2" kind="relationship" relationship="viewControllers" id="26"/>
                         <segue destination="3" kind="relationship" relationship="viewControllers" id="27"/>
+                        <segue destination="7Qp-Vg-pWY" kind="relationship" relationship="viewControllers" id="cYH-d8-5kB"/>
+                        <segue destination="3UR-RL-BJS" kind="relationship" relationship="viewControllers" id="YrQ-vV-Rnc"/>
+                        <segue destination="t9N-Ih-XWg" kind="relationship" relationship="viewControllers" id="euk-Xl-KBU"/>
                     </connections>
                 </tabBarController>
             </objects>
-            <point key="canvasLocation" x="38" y="-244"/>
+            <point key="canvasLocation" x="-58" y="663"/>
         </scene>
     </scenes>
     <resources>
         <image name="112-group.png" width="32" height="21"/>
+        <image name="news.png" width="28" height="23"/>
+        <image name="nil" width="16" height="16"/>
         <image name="schedule.png" width="30" height="30"/>
+        <image name="settings.png" width="30" height="30"/>
     </resources>
-    <classes>
-        <class className="BaseViewController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BaseViewController.h"/>
-        </class>
-        <class className="ButeFMMainFirstViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ButeFMMainFirstViewController.h"/>
-        </class>
-        <class className="ButeFMMainSecondViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ButeFMMainSecondViewController.h"/>
-        </class>
-        <class className="InstagramViewController" superclassName="BaseViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InstagramViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
