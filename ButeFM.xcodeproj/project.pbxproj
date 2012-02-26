@@ -16,11 +16,7 @@
 		BF15FD8514B3AFA80032D42E /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF15FD8314B3AFA80032D42E /* MainStoryboard_iPhone.storyboard */; };
 		BF15FD8814B3AFA80032D42E /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF15FD8614B3AFA80032D42E /* MainStoryboard_iPad.storyboard */; };
 		BF15FD8B14B3AFA80032D42E /* ButeFMMainFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF15FD8A14B3AFA80032D42E /* ButeFMMainFirstViewController.m */; };
-		BF15FD8D14B3AFA80032D42E /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = BF15FD8C14B3AFA80032D42E /* first.png */; };
-		BF15FD8F14B3AFA80032D42E /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF15FD8E14B3AFA80032D42E /* first@2x.png */; };
 		BF15FD9214B3AFA80032D42E /* ButeFMMainSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF15FD9114B3AFA80032D42E /* ButeFMMainSecondViewController.m */; };
-		BF15FD9414B3AFA80032D42E /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = BF15FD9314B3AFA80032D42E /* second.png */; };
-		BF15FD9614B3AFA80032D42E /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF15FD9514B3AFA80032D42E /* second@2x.png */; };
 		BF15FDA914B3E3730032D42E /* 112-group.png in Resources */ = {isa = PBXBuildFile; fileRef = BF15FD9C14B3E3720032D42E /* 112-group.png */; };
 		BF15FDAA14B3E3740032D42E /* 112-group@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF15FD9D14B3E3720032D42E /* 112-group@2x.png */; };
 		BF15FDAB14B3E3740032D42E /* buteFMButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BF15FD9E14B3E3720032D42E /* buteFMButton.png */; };
@@ -35,7 +31,6 @@
 		BF15FDB414B3E3740032D42E /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = BF15FDA714B3E3730032D42E /* settings.png */; };
 		BF15FDB514B3E3740032D42E /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF15FDA814B3E3730032D42E /* settings@2x.png */; };
 		BF15FDBE14B3E3940032D42E /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF15FDB714B3E3930032D42E /* BaseViewController.m */; };
-		BF15FDBF14B3E3940032D42E /* InstagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF15FDB914B3E3940032D42E /* InstagramViewController.m */; };
 		BF6C58D014F1B59D00A8A951 /* ButeFMMainThirdVeiwController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6C58CF14F1B59D00A8A951 /* ButeFMMainThirdVeiwController.m */; };
 		BF6C58D314F1B5E300A8A951 /* ButeFMMainFourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6C58D214F1B5E300A8A951 /* ButeFMMainFourthViewController.m */; };
 		BF6C58D614F1B60000A8A951 /* ButeFMMainFifthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6C58D514F1B60000A8A951 /* ButeFMMainFifthViewController.m */; };
@@ -56,12 +51,8 @@
 		BF15FD8714B3AFA80032D42E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		BF15FD8914B3AFA80032D42E /* ButeFMMainFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButeFMMainFirstViewController.h; sourceTree = "<group>"; };
 		BF15FD8A14B3AFA80032D42E /* ButeFMMainFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ButeFMMainFirstViewController.m; sourceTree = "<group>"; };
-		BF15FD8C14B3AFA80032D42E /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
-		BF15FD8E14B3AFA80032D42E /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
 		BF15FD9014B3AFA80032D42E /* ButeFMMainSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButeFMMainSecondViewController.h; sourceTree = "<group>"; };
 		BF15FD9114B3AFA80032D42E /* ButeFMMainSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ButeFMMainSecondViewController.m; sourceTree = "<group>"; };
-		BF15FD9314B3AFA80032D42E /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
-		BF15FD9514B3AFA80032D42E /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		BF15FD9C14B3E3720032D42E /* 112-group.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "112-group.png"; sourceTree = "<group>"; };
 		BF15FD9D14B3E3720032D42E /* 112-group@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "112-group@2x.png"; sourceTree = "<group>"; };
 		BF15FD9E14B3E3720032D42E /* buteFMButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buteFMButton.png; sourceTree = "<group>"; };
@@ -77,8 +68,6 @@
 		BF15FDA814B3E3730032D42E /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
 		BF15FDB614B3E3930032D42E /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		BF15FDB714B3E3930032D42E /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
-		BF15FDB814B3E3930032D42E /* InstagramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramViewController.h; sourceTree = "<group>"; };
-		BF15FDB914B3E3940032D42E /* InstagramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramViewController.m; sourceTree = "<group>"; };
 		BF6C58CE14F1B59D00A8A951 /* ButeFMMainThirdVeiwController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButeFMMainThirdVeiwController.h; sourceTree = "<group>"; };
 		BF6C58CF14F1B59D00A8A951 /* ButeFMMainThirdVeiwController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButeFMMainThirdVeiwController.m; sourceTree = "<group>"; };
 		BF6C58D114F1B5E200A8A951 /* ButeFMMainFourthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButeFMMainFourthViewController.h; sourceTree = "<group>"; };
@@ -133,8 +122,6 @@
 			children = (
 				BF15FDB614B3E3930032D42E /* BaseViewController.h */,
 				BF15FDB714B3E3930032D42E /* BaseViewController.m */,
-				BF15FDB814B3E3930032D42E /* InstagramViewController.h */,
-				BF15FDB914B3E3940032D42E /* InstagramViewController.m */,
 				BF15FD9C14B3E3720032D42E /* 112-group.png */,
 				BF15FD9D14B3E3720032D42E /* 112-group@2x.png */,
 				BF15FD9E14B3E3720032D42E /* buteFMButton.png */,
@@ -162,10 +149,6 @@
 				BF6C58D214F1B5E300A8A951 /* ButeFMMainFourthViewController.m */,
 				BF6C58D414F1B5FF00A8A951 /* ButeFMMainFifthViewController.h */,
 				BF6C58D514F1B60000A8A951 /* ButeFMMainFifthViewController.m */,
-				BF15FD8E14B3AFA80032D42E /* first@2x.png */,
-				BF15FD8C14B3AFA80032D42E /* first.png */,
-				BF15FD9314B3AFA80032D42E /* second.png */,
-				BF15FD9514B3AFA80032D42E /* second@2x.png */,
 				BF15FD7814B3AFA80032D42E /* Supporting Files */,
 			);
 			path = ButeFM;
@@ -236,10 +219,6 @@
 				BF15FD7C14B3AFA80032D42E /* InfoPlist.strings in Resources */,
 				BF15FD8514B3AFA80032D42E /* MainStoryboard_iPhone.storyboard in Resources */,
 				BF15FD8814B3AFA80032D42E /* MainStoryboard_iPad.storyboard in Resources */,
-				BF15FD8D14B3AFA80032D42E /* first.png in Resources */,
-				BF15FD8F14B3AFA80032D42E /* first@2x.png in Resources */,
-				BF15FD9414B3AFA80032D42E /* second.png in Resources */,
-				BF15FD9614B3AFA80032D42E /* second@2x.png in Resources */,
 				BF15FDA914B3E3730032D42E /* 112-group.png in Resources */,
 				BF15FDAA14B3E3740032D42E /* 112-group@2x.png in Resources */,
 				BF15FDAB14B3E3740032D42E /* buteFMButton.png in Resources */,
@@ -268,7 +247,6 @@
 				BF15FD8B14B3AFA80032D42E /* ButeFMMainFirstViewController.m in Sources */,
 				BF15FD9214B3AFA80032D42E /* ButeFMMainSecondViewController.m in Sources */,
 				BF15FDBE14B3E3940032D42E /* BaseViewController.m in Sources */,
-				BF15FDBF14B3E3940032D42E /* InstagramViewController.m in Sources */,
 				BF6C58D014F1B59D00A8A951 /* ButeFMMainThirdVeiwController.m in Sources */,
 				BF6C58D314F1B5E300A8A951 /* ButeFMMainFourthViewController.m in Sources */,
 				BF6C58D614F1B60000A8A951 /* ButeFMMainFifthViewController.m in Sources */,

@@ -141,7 +141,7 @@
         <scene sceneID="15">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
-                <tabBarController id="4" customClass="InstagramViewController" sceneMemberID="viewController">
+                <tabBarController id="4" customClass="BaseViewController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="5">
                         <rect key="frame" x="0.0" y="431" width="320" height="49"/>
@@ -167,6 +167,26 @@
         <image name="schedule.png" width="30" height="30"/>
         <image name="settings.png" width="30" height="30"/>
     </resources>
+    <classes>
+        <class className="BaseViewController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BaseViewController.h"/>
+        </class>
+        <class className="ButeFMMainFifthViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ButeFMMainFifthViewController.h"/>
+        </class>
+        <class className="ButeFMMainFirstViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ButeFMMainFirstViewController.h"/>
+        </class>
+        <class className="ButeFMMainFourthViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ButeFMMainFourthViewController.h"/>
+        </class>
+        <class className="ButeFMMainSecondViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ButeFMMainSecondViewController.h"/>
+        </class>
+        <class className="ButeFMMainThirdVeiwController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ButeFMMainThirdVeiwController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
