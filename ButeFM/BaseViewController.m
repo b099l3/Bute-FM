@@ -36,10 +36,6 @@
     self.tabBar.selectedImageTintColor = [UIColor colorWithRed:0.95 green:0.5 blue:0.15 alpha:1.0];
 }
 
--(IBAction)buteButtonPush:(UIButton *)sender{
-    
-}
-
 // Create a view controller and setup it's tab bar item with a title and image
 -(UIViewController*) viewControllerWithTabTitle:(NSString*) title image:(UIImage*)image
 {
