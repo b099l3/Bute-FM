@@ -304,6 +304,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -337,6 +338,7 @@
 				GCC_PREFIX_HEADER = "ButeFM/ButeFM-Prefix.pch";
 				INFOPLIST_FILE = "ButeFM/ButeFM-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -348,6 +350,7 @@
 				GCC_PREFIX_HEADER = "ButeFM/ButeFM-Prefix.pch";
 				INFOPLIST_FILE = "ButeFM/ButeFM-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
