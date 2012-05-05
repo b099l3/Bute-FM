@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface contactTableViewController : UITableViewController
+@interface contactTableViewController : UITableViewController <UIWebViewDelegate>
 
 @property (nonatomic, strong) NSArray *list;
+@property (nonatomic, strong) NSArray *linkList;
 
 @end

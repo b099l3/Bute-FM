@@ -5,13 +5,15 @@
 //  Created by Iain Smith on 11/03/2012.
 //  Copyright (c) 2012 b099l3. All rights reserved.
 //
-
+#import <QuartzCore/QuartzCore.h>
 #import "contactTableViewController.h"
 
 
 @implementation contactTableViewController
 
 @synthesize list = _list;
+@synthesize linkList = _linkList;
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -37,15 +39,29 @@
     [super viewDidLoad];
     
     NSArray *array = [[NSArray alloc] initWithObjects:
-                      @"Call the Studio",
+                      @"Call",
                       @"Text",
-                      @"Email",
                       @"Tweet",
-                      @"Post on Wall",
-                      @"Meet the developer",
+                      @"Comment",
+                      @"Email",
+                      @"About Bute",
                       nil];
     
+    NSArray *linkArray = [[NSArray alloc] initWithObjects:
+                          @"tel:01700503965",
+                          @"sms:07540844554",
+                          @"",
+                          @"",
+                          @"mailto:b099l3@gmail.com?&amp;subject=ButeFM App Query&amp;body=Hi, TEST",
+                          @"",
+                          nil];
+    
     self.list = array;
+    self.linkList = linkArray;
+    
+    
+    [self.view.layer setCornerRadius:7.5f];
+    [self.view.layer setMasksToBounds:YES];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -167,6 +183,35 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    
+	NSUInteger row = [indexPath row];
+	NSString *urlString = [_linkList objectAtIndex:row];
+	
+	//create URL, request, and webview.
+	NSURL *theURL = [NSURL URLWithString: urlString];
+	NSURLRequest *request = [NSURLRequest requestWithURL: theURL];
+	UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0,0,300,300)];
+	webView.scalesPageToFit = YES;
+	[webView setDelegate: self];
+	[webView loadRequest: request];
+	
+	
+	
+	//create view controlelr too, and push onto nav controller
+	UIViewController *newController = [[UIViewController alloc] init];
+	newController.view = webView;
+	
+	//activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+	//activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+    //UIBarButtonItem * barButton = [[UIBarButtonItem alloc] initWithCustomView:activityIndicator];
+	//[newController navigationItem].rightBarButtonItem = barButton;
+    //[activityIndicator startAnimating];
+	
+	
+	//Pushes the new view
+	[self.navigationController pushViewController:newController animated:YES];
+	
+	[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

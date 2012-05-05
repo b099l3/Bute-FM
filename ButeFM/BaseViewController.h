@@ -7,10 +7,14 @@
 //
 
 
-@interface BaseViewController : UITabBarController <UITabBarDelegate>
+@interface BaseViewController : NSObject <UIApplicationDelegate, UINavigationControllerDelegate, UITabBarControllerDelegate>
 {
+    UIWindow *window;
+    UINavigationController *navigationController;
 }
 
+@property (nonatomic, retain) IBOutlet UIWindow *window;
+@property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
 @property (weak, nonatomic) IBOutlet UIButton *centreButton;
 
 // Create a custom UIButton and add it to the center of our tab bar
