@@ -8,21 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ButeFMMainAppDelegate : NSObject <UIApplicationDelegate, UINavigationControllerDelegate, UITabBarControllerDelegate>
-{
-    UIWindow *window;
-    UINavigationController *navigationController;
-}
+@interface ButeFMMainAppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
-@property (weak, nonatomic) IBOutlet UIButton *centreButton;
-
-// Create a custom UIButton and add it to the center of our tab bar
--(void) addCenterButtonWithImage:(UIImage*)buttonImage highlightImage:(UIImage*)highlightImage selectedImage:(UIImage*)selectedImage;
-
--(IBAction)centreButtonPressed:(UIButton *)sender;
-
-- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item;
+@property (strong, nonatomic) UIWindow *window;
 
 @end

@@ -208,10 +208,15 @@
     //[activityIndicator startAnimating];
 	
 	
-	//Pushes the new view
+	//Pushes the new view stringByAppendingString:mymobileNO.titleLabel.text
 	[self.navigationController pushViewController:newController animated:YES];
 	
 	[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (row == 0){
+        NSString *phoneNumber = @"telprompt://01700503965";
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+    }
 }
 
 @end
