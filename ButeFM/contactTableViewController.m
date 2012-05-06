@@ -8,7 +8,6 @@
 #import <QuartzCore/QuartzCore.h>
 #import "contactTableViewController.h"
 
-
 @implementation contactTableViewController
 
 @synthesize list = _list;
@@ -48,11 +47,11 @@
                       nil];
     
     NSArray *linkArray = [[NSArray alloc] initWithObjects:
-                          @"tel:01700503965",
-                          @"sms:07540844554",
+                          @"telprompt://01700502266",
+                          @"sms:07562612747",
                           @"",
                           @"",
-                          @"mailto:b099l3@gmail.com?&amp;subject=ButeFM App Query&amp;body=Hi, TEST",
+                          @"",
                           @"",
                           nil];
     
@@ -60,8 +59,8 @@
     self.linkList = linkArray;
     
     
-    [self.view.layer setCornerRadius:7.5f];
-    [self.view.layer setMasksToBounds:YES];
+//    [self.view.layer setCornerRadius:7.5f];
+//    [self.view.layer setMasksToBounds:YES];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -128,6 +127,7 @@
     
     // Configure the cell...
     cell.textLabel.text = [self.list objectAtIndex:indexPath.row];
+    cell.detailTextLabel.text = @"";
     
     
     return cell;
@@ -186,6 +186,50 @@
     
 	NSUInteger row = [indexPath row];
 	NSString *urlString = [_linkList objectAtIndex:row];
+    
+    if (row == 0){
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
+        
+    }
+    else if (row == 1){
+        Class messageClass = (NSClassFromString(@"MFMessageComposeViewController"));
+        if (messageClass != nil)
+        {
+            // We must always check whether the current device is configured for sending emails
+            if ([messageClass canSendText])
+            {
+                [self displayMessageComposerSheet];
+            }
+            else
+            {
+                [self launchMessageAppOnDevice];
+            }
+        }
+        else
+        {
+            [self launchMessageAppOnDevice];
+        }
+    }
+    else if (row == 4){
+        Class mailClass = (NSClassFromString(@"MFMailComposeViewController"));
+        if (mailClass != nil)
+        {
+            // We must always check whether the current device is configured for sending emails
+            if ([mailClass canSendMail])
+            {
+                [self displayMailComposerSheet];
+            }
+            else
+            {
+                [self launchMailAppOnDevice];
+            }
+        }
+        else
+        {
+            [self launchMailAppOnDevice];
+        }
+    }
+    else {
 	
 	//create URL, request, and webview.
 	NSURL *theURL = [NSURL URLWithString: urlString];
@@ -210,13 +254,142 @@
 	
 	//Pushes the new view stringByAppendingString:mymobileNO.titleLabel.text
 	[self.navigationController pushViewController:newController animated:YES];
-	
+	}
 	[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (row == 0){
-        NSString *phoneNumber = @"telprompt://01700503965";
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
-    }
+
+}
+
+#pragma mark -
+#pragma mark Workaround SMS
+
+// Launches the Mail application on the device.
+-(void)launchMessageAppOnDevice
+{	
+	NSString *sms = @"sms:07562612747";	
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:sms]];
+}
+
+#pragma mark -
+#pragma mark Compose SMS
+
+// Displays an sms composition interface inside the application. Populates all the Sms fields. 
+-(void)displayMessageComposerSheet 
+{
+	MFMessageComposeViewController *picker = [[MFMessageComposeViewController alloc] init];
+	picker.messageComposeDelegate = self;
+    
+	// Set up recipients
+	NSArray *toRecipients = [NSArray arrayWithObject:@"07562612747"]; 
+
+	
+	[picker setRecipients:toRecipients];
+	
+	// Fill out the body text
+	NSString *smsBody = @"Sent from the Bute FM iPhone App";
+	[picker setBody:smsBody];
+	
+	[self presentModalViewController:picker animated:YES];
+}
+
+// Dismisses the email composition interface when users tap Cancel or Send. Proceeds to update the message field with the result of the operation.
+- (void)messageComposeViewController:(MFMessageComposeViewController*)controller didFinishWithResult:(MessageComposeResult)result
+{	
+    //	message.hidden = NO;
+    //	// Notifies users about errors associated with the interface
+    //	switch (result)
+    //	{
+    //		case MFMailComposeResultCancelled:
+    //			message.text = @"Result: canceled";
+    //			break;
+    //		case MFMailComposeResultSaved:
+    //			message.text = @"Result: saved";
+    //			break;
+    //		case MFMailComposeResultSent:
+    //			message.text = @"Result: sent";
+    //			break;
+    //		case MFMailComposeResultFailed:
+    //			message.text = @"Result: failed";
+    //			break;
+    //		default:
+    //			message.text = @"Result: not sent";
+    //			break;
+    //	}
+	[self dismissModalViewControllerAnimated:YES];
+}
+
+#pragma mark -
+#pragma mark Workaround
+
+// Launches the Mail application on the device.
+-(void)launchMailAppOnDevice
+{
+	NSString *recipients = @"mailto:first@example.com?cc=second@example.com,third@example.com&subject=Hello from California!";
+	NSString *body = @"&body=It is raining in sunny California!";
+	
+	NSString *email = [NSString stringWithFormat:@"%@%@", recipients, body];
+	email = [email stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+	
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:email]];
+}
+
+#pragma mark -
+#pragma mark Compose Mail
+
+// Displays an email composition interface inside the application. Populates all the Mail fields. 
+-(void)displayMailComposerSheet 
+{
+	MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
+	picker.mailComposeDelegate = self;
+	
+	[picker setSubject:@"Email from Bute FM App"];
+	
+    
+	// Set up recipients
+	NSArray *toRecipients = [NSArray arrayWithObjects:@"butefm@yahoo.co.uk", @"studio@butefm.com", nil]; 
+//	NSArray *ccRecipients = [NSArray arrayWithObjects:@"second@example.com", @"third@example.com", nil]; 
+//	NSArray *bccRecipients = [NSArray arrayWithObject:@"fourth@example.com"]; 
+	
+	[picker setToRecipients:toRecipients];
+//	[picker setCcRecipients:ccRecipients];	
+//	[picker setBccRecipients:bccRecipients];
+	
+	// Attach an image to the email
+//	NSString *path = [[NSBundle mainBundle] pathForResource:@"rainy" ofType:@"png"];
+//    NSData *myData = [NSData dataWithContentsOfFile:path];
+//	[picker addAttachmentData:myData mimeType:@"image/png" fileName:@"rainy"];
+	
+	// Fill out the email body text
+	NSString *emailBody = @"Sent from the Bute FM iPhone App";
+	[picker setMessageBody:emailBody isHTML:NO];
+	
+	[self presentModalViewController:picker animated:YES];
+}
+
+// Dismisses the email composition interface when users tap Cancel or Send. Proceeds to update the message field with the result of the operation.
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error 
+{	
+//	message.hidden = NO;
+//	// Notifies users about errors associated with the interface
+//	switch (result)
+//	{
+//		case MFMailComposeResultCancelled:
+//			message.text = @"Result: canceled";
+//			break;
+//		case MFMailComposeResultSaved:
+//			message.text = @"Result: saved";
+//			break;
+//		case MFMailComposeResultSent:
+//			message.text = @"Result: sent";
+//			break;
+//		case MFMailComposeResultFailed:
+//			message.text = @"Result: failed";
+//			break;
+//		default:
+//			message.text = @"Result: not sent";
+//			break;
+//	}
+	[self dismissModalViewControllerAnimated:YES];
 }
 
 @end

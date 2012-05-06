@@ -7,10 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
 
-@interface contactTableViewController : UITableViewController <UIWebViewDelegate>
+@interface contactTableViewController : UITableViewController <UIWebViewDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
 
 @property (nonatomic, strong) NSArray *list;
 @property (nonatomic, strong) NSArray *linkList;
+
+
+-(void)displayMessageComposerSheet;
+-(void)launchMessageAppOnDevice;
+-(void)displayMailComposerSheet;
+-(void)launchMailAppOnDevice;
 
 @end

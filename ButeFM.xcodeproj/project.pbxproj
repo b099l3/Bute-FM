@@ -34,6 +34,7 @@
 		BF6C58D314F1B5E300A8A951 /* ButeFMMainFourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6C58D214F1B5E300A8A951 /* ButeFMMainFourthViewController.m */; };
 		BF6C58D614F1B60000A8A951 /* ButeFMMainFifthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6C58D514F1B60000A8A951 /* ButeFMMainFifthViewController.m */; };
 		BFB16C01150D5DE500E8F552 /* contactTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB16C00150D5DE500E8F552 /* contactTableViewController.m */; };
+		BFF8B4051556F3820022CAAC /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF8B4041556F3820022CAAC /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		BF6C58D514F1B60000A8A951 /* ButeFMMainFifthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButeFMMainFifthViewController.m; sourceTree = "<group>"; };
 		BFB16BFF150D5DE500E8F552 /* contactTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = contactTableViewController.h; sourceTree = "<group>"; };
 		BFB16C00150D5DE500E8F552 /* contactTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = contactTableViewController.m; sourceTree = "<group>"; };
+		BFF8B4041556F3820022CAAC /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFF8B4051556F3820022CAAC /* MessageUI.framework in Frameworks */,
 				BF15FD7214B3AFA80032D42E /* UIKit.framework in Frameworks */,
 				BF15FD7414B3AFA80032D42E /* Foundation.framework in Frameworks */,
 				BF15FD7614B3AFA80032D42E /* CoreGraphics.framework in Frameworks */,
@@ -110,6 +113,7 @@
 		BF15FD7014B3AFA80032D42E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BFF8B4041556F3820022CAAC /* MessageUI.framework */,
 				BF15FD7114B3AFA80032D42E /* UIKit.framework */,
 				BF15FD7314B3AFA80032D42E /* Foundation.framework */,
 				BF15FD7514B3AFA80032D42E /* CoreGraphics.framework */,
