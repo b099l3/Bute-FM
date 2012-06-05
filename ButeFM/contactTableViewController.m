@@ -12,6 +12,8 @@
 
 @synthesize list = _list;
 @synthesize linkList = _linkList;
+@synthesize statusList = _statusList;
+
 
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -55,8 +57,18 @@
                           @"",
                           nil];
     
+    NSMutableArray *statusArray = [[NSMutableArray alloc] initWithObjects:
+                      @"",
+                      @"here",
+                      @"",
+                      @"",
+                      @"",
+                      @"",
+                      nil];
+    
     self.list = array;
     self.linkList = linkArray;
+    self.statusList = statusArray;
     
     
 //    [self.view.layer setCornerRadius:7.5f];
@@ -122,12 +134,12 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
     // Configure the cell...
     cell.textLabel.text = [self.list objectAtIndex:indexPath.row];
-    cell.detailTextLabel.text = @"";
+    cell.detailTextLabel.text = [self.statusList objectAtIndex:indexPath.row];
     
     
     return cell;
@@ -295,27 +307,25 @@
 // Dismisses the email composition interface when users tap Cancel or Send. Proceeds to update the message field with the result of the operation.
 - (void)messageComposeViewController:(MFMessageComposeViewController*)controller didFinishWithResult:(MessageComposeResult)result
 {	
-    //	message.hidden = NO;
-    //	// Notifies users about errors associated with the interface
-    //	switch (result)
-    //	{
-    //		case MFMailComposeResultCancelled:
-    //			message.text = @"Result: canceled";
-    //			break;
-    //		case MFMailComposeResultSaved:
-    //			message.text = @"Result: saved";
-    //			break;
-    //		case MFMailComposeResultSent:
-    //			message.text = @"Result: sent";
-    //			break;
-    //		case MFMailComposeResultFailed:
-    //			message.text = @"Result: failed";
-    //			break;
-    //		default:
-    //			message.text = @"Result: not sent";
-    //			break;
-    //	}
+    	// Notifies users about errors associated with the interface
+    	switch (result)
+    	{
+    		case MessageComposeResultCancelled:
+    			[self.statusList replaceObjectAtIndex:1 withObject:@"Result: canceled"];
+    			break;
+    		case MessageComposeResultSent:
+                [self.statusList replaceObjectAtIndex:1 withObject:@"Result: sent"];
+    			break;
+    		case MessageComposeResultFailed:
+                [self.statusList replaceObjectAtIndex:1 withObject:@"Result: failed"];
+    			break;
+    		default:
+                [self.statusList replaceObjectAtIndex:1 withObject:@"Result: not sent"];
+    			break;
+    	}
 	[self dismissModalViewControllerAnimated:YES];
+    [self.tableView reloadData];
+    [self.tableView reloadInputViews];
 }
 
 #pragma mark -

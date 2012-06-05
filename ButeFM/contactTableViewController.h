@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) NSArray *list;
 @property (nonatomic, strong) NSArray *linkList;
+@property (nonatomic, strong) NSMutableArray *statusList;
 
 
 -(void)displayMessageComposerSheet;
