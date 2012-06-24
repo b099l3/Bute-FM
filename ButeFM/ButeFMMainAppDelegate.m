@@ -13,8 +13,36 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self customizeControls];
     // Override point for customization after application launch.
     return YES;
+}
+
+- (void) customizeControls {
+    UITabBar *tabBarAppearance = [UITabBar appearance];
+    [tabBarAppearance setTintColor:[UIColor blackColor]];
+//    [[UITabBar appearance] setSelectedImageTintColor:[UIColor redColor]];
+//    [[UITabBar appearance] setTintColor:[UIColor blackColor]];
+//    [[UITabBar appearance] setSelectionIndicatorImage:[[UIImage imageNamed:@"tabbar-selection.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(12, 12, 12, 12)]];
+//    [[UITabBar appearance] setBackgroundImage:[UIImage imageNamed:@"brushedmetal.png"]];
+//    
+//    [[UISwitch appearance] setOnTintColor:[UIColor redColor]];
+//    [[UISlider appearance] setMinimumTrackTintColor:[UIColor redColor]];
+//    [[UISlider appearance] setMaximumTrackTintColor:[[UIColor redColor] colorWithAlphaComponent:0.5]];
+//    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor redColor] forKey:UITextAttributeTextColor] forState:UIControlStateSelected];
+//    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor blackColor] forKey:UITextAttributeTextColor] forState:UIControlStateNormal];
+//    
+//    
+//    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"buteFMButtonH.png"] forBarMetrics:UIBarMetricsDefault];
+    
+    UINavigationBar *navBarAppearance = [UINavigationBar appearance];
+    [navBarAppearance setTintColor:[UIColor blackColor]];
+  //  [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor,[UIFont fontWithName:@"Helvetica" size:18],UITextAttributeFont, nil]];
+    
+//    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:[[UIImage imageNamed:@"backbtn-bg.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 13, 0, 7)] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    
+    
+//    [[UISwitch appearanceWhenContainedIn:[DetailViewController class],nil] setOnTintColor:BLACK_COLOR];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

@@ -6,12 +6,14 @@
 //  Copyright (c) 2012 b099l3. All rights reserved.
 //
 #import <QuartzCore/QuartzCore.h>
-#import "contactTableViewController.h"
+#import "contactTableViewController.h" 
+#import "AboutViewController.h"
 
 @implementation contactTableViewController
 
 @synthesize list = _list;
 @synthesize linkList = _linkList;
+@synthesize imageNameList = _imageNameList;
 @synthesize statusList = _statusList;
 
 
@@ -45,7 +47,7 @@
                       @"Tweet",
                       @"Comment",
                       @"Email",
-                      @"About Bute",
+                      @"About Bute FM",
                       nil];
     
     NSArray *linkArray = [[NSArray alloc] initWithObjects:
@@ -59,16 +61,27 @@
     
     NSMutableArray *statusArray = [[NSMutableArray alloc] initWithObjects:
                       @"",
-                      @"here",
+                      @"",
                       @"",
                       @"",
                       @"",
                       @"",
                       nil];
     
+    NSMutableArray *imageNameArray = [[NSMutableArray alloc] initWithObjects:
+                                   @"phone",
+                                   @"text",
+                                   @"email",
+                                   @"email",
+                                   @"email",
+                                   @"info",
+                                   nil];
+    
     self.list = array;
     self.linkList = linkArray;
+    self.imageNameList = imageNameArray;
     self.statusList = statusArray;
+    
     
     
 //    [self.view.layer setCornerRadius:7.5f];
@@ -140,7 +153,8 @@
     // Configure the cell...
     cell.textLabel.text = [self.list objectAtIndex:indexPath.row];
     cell.detailTextLabel.text = [self.statusList objectAtIndex:indexPath.row];
-    
+    NSString *imageFile = [[NSString alloc] initWithFormat:@"%@.png", [self.imageNameList objectAtIndex:indexPath.row]];
+    cell.imageView.image = [UIImage imageNamed:imageFile]; 
     
     return cell;
 }
@@ -199,11 +213,10 @@
 	NSUInteger row = [indexPath row];
 	NSString *urlString = [_linkList objectAtIndex:row];
     
-    if (row == 0){
+    if (row == 0){ //call
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
         
-    }
-    else if (row == 1){
+    } else if (row == 1){ //text
         Class messageClass = (NSClassFromString(@"MFMessageComposeViewController"));
         if (messageClass != nil)
         {
@@ -221,8 +234,11 @@
         {
             [self launchMessageAppOnDevice];
         }
-    }
-    else if (row == 4){
+    } else if(row == 2){ //Tweet
+        
+        [self sendCustomTweet];
+        
+    } else if (row == 4){ // Email
         Class mailClass = (NSClassFromString(@"MFMailComposeViewController"));
         if (mailClass != nil)
         {
@@ -240,8 +256,14 @@
         {
             [self launchMailAppOnDevice];
         }
-    }
-    else {
+    } else if (row == 5){ //About
+        
+        AboutViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AboutViewController"];
+         // ...
+         // Pass the selected object to the new view controller.
+         [self.navigationController pushViewController:detailViewController animated:YES];
+
+    } else {
 	
 	//create URL, request, and webview.
 	NSURL *theURL = [NSURL URLWithString: urlString];
@@ -325,17 +347,51 @@
     	}
 	[self dismissModalViewControllerAnimated:YES];
     [self.tableView reloadData];
-    [self.tableView reloadInputViews];
+    //[self.tableView reloadInputViews];
+}
+
+
+#pragma mark -
+#pragma mark Tweet
+
+// Displays an tweet composition interface inside the application. Populates the message. 
+
+- (void)sendCustomTweet {
+    // Set up the built-in twitter composition view controller.
+    TWTweetComposeViewController *tweetViewController = [[TWTweetComposeViewController alloc] init];
+    
+    // Set the initial tweet text. See the framework for additional properties that can be set.
+    [tweetViewController setInitialText:@"@Bute_FM "];
+    
+    // Create the completion handler block.
+    [tweetViewController setCompletionHandler:^(TWTweetComposeViewControllerResult result) {
+        
+        switch (result) {
+            case TWTweetComposeViewControllerResultCancelled:
+                [self.statusList replaceObjectAtIndex:2 withObject:@"Tweet canceled"];
+                break;
+            case TWTweetComposeViewControllerResultDone:
+                   [self.statusList replaceObjectAtIndex:2 withObject:@"Tweet sent"];
+                break;
+            default:
+                break;
+        }
+        [self.tableView reloadData];
+        [self dismissModalViewControllerAnimated:YES];
+    }];
+    
+    // Present the tweet composition view controller modally.
+    [self presentModalViewController:tweetViewController animated:YES];
 }
 
 #pragma mark -
-#pragma mark Workaround
+#pragma mark Workaround Email
 
 // Launches the Mail application on the device.
 -(void)launchMailAppOnDevice
 {
-	NSString *recipients = @"mailto:first@example.com?cc=second@example.com,third@example.com&subject=Hello from California!";
-	NSString *body = @"&body=It is raining in sunny California!";
+	NSString *recipients = @"mailto:butefm@yahoo.co.uk,studio@butefm.com&subject=Email from Bute FM App";
+	NSString *body = @"&body=Sent from the Bute FM iPhone App";
 	
 	NSString *email = [NSString stringWithFormat:@"%@%@", recipients, body];
 	email = [email stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -344,62 +400,50 @@
 }
 
 #pragma mark -
-#pragma mark Compose Mail
+#pragma mark Compose Email
 
 // Displays an email composition interface inside the application. Populates all the Mail fields. 
 -(void)displayMailComposerSheet 
 {
 	MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
 	picker.mailComposeDelegate = self;
-	
 	[picker setSubject:@"Email from Bute FM App"];
-	
     
 	// Set up recipients
-	NSArray *toRecipients = [NSArray arrayWithObjects:@"butefm@yahoo.co.uk", @"studio@butefm.com", nil]; 
-//	NSArray *ccRecipients = [NSArray arrayWithObjects:@"second@example.com", @"third@example.com", nil]; 
-//	NSArray *bccRecipients = [NSArray arrayWithObject:@"fourth@example.com"]; 
-	
+	NSArray *toRecipients = [NSArray arrayWithObjects:@"butefm@yahoo.co.uk", @"studio@butefm.com", nil];
 	[picker setToRecipients:toRecipients];
-//	[picker setCcRecipients:ccRecipients];	
-//	[picker setBccRecipients:bccRecipients];
-	
-	// Attach an image to the email
-//	NSString *path = [[NSBundle mainBundle] pathForResource:@"rainy" ofType:@"png"];
-//    NSData *myData = [NSData dataWithContentsOfFile:path];
-//	[picker addAttachmentData:myData mimeType:@"image/png" fileName:@"rainy"];
 	
 	// Fill out the email body text
 	NSString *emailBody = @"Sent from the Bute FM iPhone App";
 	[picker setMessageBody:emailBody isHTML:NO];
-	
 	[self presentModalViewController:picker animated:YES];
 }
 
 // Dismisses the email composition interface when users tap Cancel or Send. Proceeds to update the message field with the result of the operation.
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error 
 {	
-//	message.hidden = NO;
-//	// Notifies users about errors associated with the interface
-//	switch (result)
-//	{
-//		case MFMailComposeResultCancelled:
-//			message.text = @"Result: canceled";
-//			break;
-//		case MFMailComposeResultSaved:
-//			message.text = @"Result: saved";
-//			break;
-//		case MFMailComposeResultSent:
-//			message.text = @"Result: sent";
-//			break;
-//		case MFMailComposeResultFailed:
-//			message.text = @"Result: failed";
-//			break;
-//		default:
-//			message.text = @"Result: not sent";
-//			break;
-//	}
+	// Notifies users about errors associated with the interface
+	switch (result)
+	{
+		case MFMailComposeResultCancelled:
+            [self.statusList replaceObjectAtIndex:4 withObject:@"Result: canceled"];
+            break;
+		case MFMailComposeResultSaved:
+			[self.statusList replaceObjectAtIndex:4 withObject:@"Result: Saved"];
+            break;
+		case MFMailComposeResultSent:
+			[self.statusList replaceObjectAtIndex:4 withObject:@"Result: Sent"];
+            break;
+		case MFMailComposeResultFailed:
+			[self.statusList replaceObjectAtIndex:4 withObject:@"Result: Failed"];
+            break;
+		default:
+			[self.statusList replaceObjectAtIndex:4 withObject:@"Result: Not Sent"];
+            break;
+	}
 	[self dismissModalViewControllerAnimated:YES];
+    [self.tableView reloadData];
+    //[self.tableView reloadInputViews];
 }
 
 @end

@@ -30,9 +30,17 @@
 		BF15FDB414B3E3740032D42E /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = BF15FDA714B3E3730032D42E /* settings.png */; };
 		BF15FDB514B3E3740032D42E /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF15FDA814B3E3730032D42E /* settings@2x.png */; };
 		BF15FDBE14B3E3940032D42E /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF15FDB714B3E3930032D42E /* BaseViewController.m */; };
+		BF5C9987157EC4E800CA137E /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5C9985157EC4E800CA137E /* AboutViewController.m */; };
 		BF6C58D014F1B59D00A8A951 /* ButeFMMainThirdVeiwController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6C58CF14F1B59D00A8A951 /* ButeFMMainThirdVeiwController.m */; };
 		BF6C58D314F1B5E300A8A951 /* ButeFMMainFourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6C58D214F1B5E300A8A951 /* ButeFMMainFourthViewController.m */; };
 		BF6C58D614F1B60000A8A951 /* ButeFMMainFifthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6C58D514F1B60000A8A951 /* ButeFMMainFifthViewController.m */; };
+		BF7A7FF21594ED3100517546 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF7A7FF11594ED3100517546 /* Accounts.framework */; };
+		BF7A7FF51594ED3C00517546 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF7A7FF41594ED3B00517546 /* Twitter.framework */; };
+		BF80F3691580059400E0825A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BF80F3681580059400E0825A /* Settings.bundle */; };
+		BFA97506158F9D470059253B /* email.png in Resources */ = {isa = PBXBuildFile; fileRef = BFA97505158F9D470059253B /* email.png */; };
+		BFA97509158FA15E0059253B /* phone.png in Resources */ = {isa = PBXBuildFile; fileRef = BFA97508158FA15E0059253B /* phone.png */; };
+		BFAF126315939C22009A0534 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = BFAF126215939C22009A0534 /* info.png */; };
+		BFAF126615939E21009A0534 /* text.png in Resources */ = {isa = PBXBuildFile; fileRef = BFAF126515939E21009A0534 /* text.png */; };
 		BFB16C01150D5DE500E8F552 /* contactTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB16C00150D5DE500E8F552 /* contactTableViewController.m */; };
 		BFF8B4051556F3820022CAAC /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF8B4041556F3820022CAAC /* MessageUI.framework */; };
 /* End PBXBuildFile section */
@@ -67,12 +75,21 @@
 		BF15FDA814B3E3730032D42E /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
 		BF15FDB614B3E3930032D42E /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		BF15FDB714B3E3930032D42E /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		BF5C9984157EC4E800CA137E /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		BF5C9985157EC4E800CA137E /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		BF6C58CE14F1B59D00A8A951 /* ButeFMMainThirdVeiwController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButeFMMainThirdVeiwController.h; sourceTree = "<group>"; };
 		BF6C58CF14F1B59D00A8A951 /* ButeFMMainThirdVeiwController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButeFMMainThirdVeiwController.m; sourceTree = "<group>"; };
 		BF6C58D114F1B5E200A8A951 /* ButeFMMainFourthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButeFMMainFourthViewController.h; sourceTree = "<group>"; };
 		BF6C58D214F1B5E300A8A951 /* ButeFMMainFourthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButeFMMainFourthViewController.m; sourceTree = "<group>"; };
 		BF6C58D414F1B5FF00A8A951 /* ButeFMMainFifthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButeFMMainFifthViewController.h; sourceTree = "<group>"; };
 		BF6C58D514F1B60000A8A951 /* ButeFMMainFifthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButeFMMainFifthViewController.m; sourceTree = "<group>"; };
+		BF7A7FF11594ED3100517546 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		BF7A7FF41594ED3B00517546 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		BF80F3681580059400E0825A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		BFA97505158F9D470059253B /* email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = email.png; sourceTree = "<group>"; };
+		BFA97508158FA15E0059253B /* phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone.png; sourceTree = "<group>"; };
+		BFAF126215939C22009A0534 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
+		BFAF126515939E21009A0534 /* text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = text.png; sourceTree = "<group>"; };
 		BFB16BFF150D5DE500E8F552 /* contactTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = contactTableViewController.h; sourceTree = "<group>"; };
 		BFB16C00150D5DE500E8F552 /* contactTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = contactTableViewController.m; sourceTree = "<group>"; };
 		BFF8B4041556F3820022CAAC /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -87,6 +104,8 @@
 				BF15FD7214B3AFA80032D42E /* UIKit.framework in Frameworks */,
 				BF15FD7414B3AFA80032D42E /* Foundation.framework in Frameworks */,
 				BF15FD7614B3AFA80032D42E /* CoreGraphics.framework in Frameworks */,
+				BF7A7FF21594ED3100517546 /* Accounts.framework in Frameworks */,
+				BF7A7FF51594ED3C00517546 /* Twitter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +132,8 @@
 		BF15FD7014B3AFA80032D42E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BF7A7FF41594ED3B00517546 /* Twitter.framework */,
+				BF7A7FF11594ED3100517546 /* Accounts.framework */,
 				BFF8B4041556F3820022CAAC /* MessageUI.framework */,
 				BF15FD7114B3AFA80032D42E /* UIKit.framework */,
 				BF15FD7314B3AFA80032D42E /* Foundation.framework */,
@@ -141,10 +162,17 @@
 				BF15FDA814B3E3730032D42E /* settings@2x.png */,
 				BF15FD8014B3AFA80032D42E /* ButeFMMainAppDelegate.h */,
 				BF15FD8114B3AFA80032D42E /* ButeFMMainAppDelegate.m */,
+				BFAF126215939C22009A0534 /* info.png */,
+				BFA97505158F9D470059253B /* email.png */,
 				BF15FD8314B3AFA80032D42E /* MainStoryboard_iPhone.storyboard */,
 				BF15FD8614B3AFA80032D42E /* MainStoryboard_iPad.storyboard */,
 				BFB16BFF150D5DE500E8F552 /* contactTableViewController.h */,
 				BFB16C00150D5DE500E8F552 /* contactTableViewController.m */,
+				BFAF126515939E21009A0534 /* text.png */,
+				BFA97508158FA15E0059253B /* phone.png */,
+				BF80F3681580059400E0825A /* Settings.bundle */,
+				BF5C9984157EC4E800CA137E /* AboutViewController.h */,
+				BF5C9985157EC4E800CA137E /* AboutViewController.m */,
 				BF15FD9014B3AFA80032D42E /* ButeFMMainSecondViewController.h */,
 				BF15FD9114B3AFA80032D42E /* ButeFMMainSecondViewController.m */,
 				BF6C58CE14F1B59D00A8A951 /* ButeFMMainThirdVeiwController.h */,
@@ -195,7 +223,7 @@
 		BF15FD6414B3AFA60032D42E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = b099l3;
 			};
 			buildConfigurationList = BF15FD6714B3AFA60032D42E /* Build configuration list for PBXProject "ButeFM" */;
@@ -236,6 +264,11 @@
 				BF15FDB314B3E3740032D42E /* schedule@2x.png in Resources */,
 				BF15FDB414B3E3740032D42E /* settings.png in Resources */,
 				BF15FDB514B3E3740032D42E /* settings@2x.png in Resources */,
+				BF80F3691580059400E0825A /* Settings.bundle in Resources */,
+				BFA97506158F9D470059253B /* email.png in Resources */,
+				BFA97509158FA15E0059253B /* phone.png in Resources */,
+				BFAF126315939C22009A0534 /* info.png in Resources */,
+				BFAF126615939E21009A0534 /* text.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +287,7 @@
 				BF6C58D314F1B5E300A8A951 /* ButeFMMainFourthViewController.m in Sources */,
 				BF6C58D614F1B60000A8A951 /* ButeFMMainFifthViewController.m in Sources */,
 				BFB16C01150D5DE500E8F552 /* contactTableViewController.m in Sources */,
+				BF5C9987157EC4E800CA137E /* AboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

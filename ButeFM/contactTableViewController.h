@@ -9,11 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
+#import <Twitter/Twitter.h>
+#import <Accounts/Accounts.h>
 
 @interface contactTableViewController : UITableViewController <UIWebViewDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
 
 @property (nonatomic, strong) NSArray *list;
 @property (nonatomic, strong) NSArray *linkList;
+@property (nonatomic, strong) NSArray *imageNameList;
 @property (nonatomic, strong) NSMutableArray *statusList;
 
 
@@ -21,5 +24,7 @@
 -(void)launchMessageAppOnDevice;
 -(void)displayMailComposerSheet;
 -(void)launchMailAppOnDevice;
+-(void)sendCustomTweet;
+
 
 @end
