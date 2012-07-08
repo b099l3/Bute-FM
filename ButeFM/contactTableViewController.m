@@ -442,8 +442,23 @@
             break;
 	}
 	[self dismissModalViewControllerAnimated:YES];
+    [[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]] detailTextLabel] setAlpha:1];
+    [[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]] textLabel] layer] ;
     [self.tableView reloadData];
-    //[self.tableView reloadInputViews];
+    
+    [UIView animateWithDuration:3 animations:^{
+        [[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]] detailTextLabel] setAlpha:0];
+        
+    }
+    completion:^(BOOL finished){
+                [UIView animateWithDuration:1 animations:^{
+                              [[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]]                   textLabel]  setCenter:CGPointMake(70, 22)];
+                    [self.statusList replaceObjectAtIndex:4 withObject:@""];
+                         }
+                 ];
+    }];
+
 }
+
 
 @end
