@@ -17,6 +17,8 @@
     [super viewDidLoad];
     [self addCenterButtonWithImage:[UIImage imageNamed:@"buteFMButton.png"] highlightImage:[UIImage imageNamed:@"buteFMButtonH.png"] selectedImage:[UIImage imageNamed:@"buteFMButtonH.png"]];
     [self.tabBar setSelectedImageTintColor:[UIColor colorWithRed:0.956 green:0.5725 blue:0.0 alpha:1.0]];     // 241 106 35 //	242	145	0	//244	146	0	244	146	0	
+    [self setSelectedIndex:1];
+    [_centreButton setBackgroundImage:[UIImage imageNamed:@"buteFMButtonH.png"] forState:UIControlStateNormal];
 }
 
 // Create a custom UIButton and add it to the center of our tab bar
