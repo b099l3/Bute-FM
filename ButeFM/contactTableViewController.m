@@ -7,7 +7,16 @@
 //
 #import <QuartzCore/QuartzCore.h>
 #import "contactTableViewController.h" 
-#import "AboutViewController.h"
+#import "CustomDrawnCell.h"
+#import "ButeFMMainAppDelegate.h"
+
+@interface contactTableViewController ()
+
+@property (nonatomic) int  tweetIndex;
+@property (nonatomic) int  emailIndex;
+@property (nonatomic) int  facebookIndex;
+
+@end
 
 @implementation contactTableViewController
 
@@ -17,12 +26,12 @@
 @synthesize statusList = _statusList;
 
 
-
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        
     }
     return self;
 }
@@ -41,48 +50,116 @@
 {
     [super viewDidLoad];
     
-    NSArray *array = [[NSArray alloc] initWithObjects:
-                      @"Call",
-                      @"Text",
-                      @"Tweet",
-                      @"Comment",
-                      @"Email",
-                      @"About Bute FM",
-                      nil];
+    NSMutableArray *array = [[NSMutableArray alloc] initWithObjects:
+                             @"Call",
+                             @"Text",
+                             @"Tweet",
+                             @"Comment",
+                             @"Email",
+                             @"About",
+                             nil];
     
-    NSArray *linkArray = [[NSArray alloc] initWithObjects:
-                          @"telprompt://01700502266",
-                          @"sms:07562612747",
-                          @"",
-                          @"",
-                          @"",
-                          @"",
-                          nil];
+    NSMutableArray *linkArray = [[NSMutableArray alloc] initWithObjects:
+                                 @"telprompt://01700502266",
+                                 @"sms:07562612747" ,
+                                 @"",
+                                 @"",
+                                 @"",
+                                 @"",
+                                 nil];
     
     NSMutableArray *statusArray = [[NSMutableArray alloc] initWithObjects:
-                      @"",
-                      @"",
-                      @"",
-                      @"",
-                      @"",
-                      @"",
-                      nil];
+                                   @"",
+                                   @"",
+                                   @"",
+                                   @"",
+                                   @"",
+                                   @"",
+                                   nil];
     
     NSMutableArray *imageNameArray = [[NSMutableArray alloc] initWithObjects:
-                                   @"phone",
-                                   @"text",
-                                   @"email",
-                                   @"email",
-                                   @"email",
-                                   @"info",
-                                   nil];
+                                      @"phone",
+                                      @"Text-Icon",
+                                      @"twitter",
+                                      @"f_logo",
+                                      @"Email-Icon",
+                                      @"about",
+                                      nil];
+    
+    //iphone simulator == dont run
+    //iphone == run
+    
+    //check to see if device is a phone
+    if ([[[UIDevice currentDevice] model] rangeOfString:@"Phone"].location == NSNotFound || //Phone is not found OR
+        [[[UIDevice currentDevice] model] rangeOfString:@"Simulator"].location != NSNotFound
+        
+         // && //simulator is found
+        //[[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:01700503965"]]]
+        )
+    {
+        self.isPhone = false;
+        NSLog(@"%@", [[UIDevice currentDevice] model]);
+        //it is and iPhone and it not the simulator
+        self.tweetIndex = 0;
+        self.facebookIndex = 1;
+        self.emailIndex = 2;
+        //Remove Call & Text cells as they wont work.
+        
+        [array removeObjectAtIndex:0];
+        [array removeObjectAtIndex:1];
+        [linkArray removeObjectAtIndex:0];
+        [linkArray removeObjectAtIndex:1];
+        [statusArray removeObjectAtIndex:0];
+        [statusArray removeObjectAtIndex:1];
+        [imageNameArray removeObjectAtIndex:0];
+        [imageNameArray removeObjectAtIndex:1];
+        
+        if (self.isPhone == false){
+            NSLog(@"It is not a phone");
+        }
+    } else {
+        self.isPhone = true;
+        self.tweetIndex = 2;
+        self.facebookIndex = 3;
+        self.emailIndex = 4;
+    }
+    
+    /*
+     Add logic for facebook cell to display login or picture uf a session is already there.
+     */
+    ButeFMMainAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    if (appDelegate.session.isOpen) {
+        [statusArray replaceObjectAtIndex:self.facebookIndex withObject:@"Log Out"];
+        NSLog(@"Displaying Log Out");
+    } else {
+        [statusArray replaceObjectAtIndex:self.facebookIndex withObject:@"Log In"];
+        NSLog(@"Displaying Log In");
+    }
     
     self.list = array;
     self.linkList = linkArray;
     self.imageNameList = imageNameArray;
     self.statusList = statusArray;
     
-    
+    if (!appDelegate.session.isOpen) {
+        // create a fresh session object
+        NSLog(@"FBSession not Open creating new Session");
+        appDelegate.session = [[FBSession alloc] init];
+        
+        // if we don't have a cached token, a call to open here would cause UX for login to
+        // occur; we don't want that to happen unless the user clicks the login button, and so
+        // we check here to make sure we have a token before calling open
+        if (appDelegate.session.state == FBSessionStateCreatedTokenLoaded) {
+            NSLog(@"Cached token but still neeed to log in");
+            // even though we had a cached token, we need to login to make the session usable
+            [appDelegate.session openWithCompletionHandler:^(FBSession *session,
+                                                             FBSessionState status,
+                                                             NSError *error) {
+                // we recurse here, in order to update buttons and labels
+                [self updateView];
+            }];
+        }
+    }
     
 //    [self.view.layer setCornerRadius:7.5f];
 //    [self.view.layer setMasksToBounds:YES];
@@ -121,10 +198,16 @@
     [super viewDidDisappear:animated];
 }
 
+-(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [self.tableView reloadData];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    //return (interfaceOrientation == UIDeviceOrientationPortraitUpsideDown);
+    return YES;
 }
 
 #pragma mark - Table view data source
@@ -141,157 +224,134 @@
     return [self.list count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Contact Type";
+// table with with custom drawn cells
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    }
-    
-    // Configure the cell...
-    cell.textLabel.text = [self.list objectAtIndex:indexPath.row];
-    cell.detailTextLabel.text = [self.statusList objectAtIndex:indexPath.row];
-    NSString *imageFile = [[NSString alloc] initWithFormat:@"%@.png", [self.imageNameList objectAtIndex:indexPath.row]];
-    cell.imageView.image = [UIImage imageNamed:imageFile]; 
-    
-    return cell;
+        static NSString *CellIdentifier = @"CustomDrawnCell";
+        
+        CustomDrawnCell *cell = (CustomDrawnCell*)[tableView dequeueReusableCellWithIdentifier: CellIdentifier];
+        if (cell == nil)
+        {
+            cell = [[CustomDrawnCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
+        
+        [cell setTitle:[self.list objectAtIndex:indexPath.row]
+              subTitle:[self.statusList objectAtIndex:indexPath.row]
+                  time:[self.linkList objectAtIndex:indexPath.row]
+             thumbnail:[UIImage imageNamed:[self.imageNameList objectAtIndex:indexPath.row]]];
+        
+        // other initialization goes here
+        return cell;
 }
 
+
+
 /*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the specified item to be editable.
- return YES;
+ // table with with built in cells
+ - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+ 
+ static NSString *CellIdentifier = @"Cell";
+ 
+ UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+ if (cell == nil) {
+ cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+ }
+ 
+ // Configure the cell...
+ cell.textLabel.text = [NSString stringWithFormat:@"Row %d", indexPath.row];
+ cell.detailTextLabel.text = [NSString stringWithFormat:@"Row %d", indexPath.row];
+ 
+ cell.imageView.image = [UIImage imageNamed:@"ios5"];
+ 
+ cell.selectionStyle = UITableViewCellSelectionStyleNone;
+ return cell;
  }
  */
 
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
- {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
- }   
- else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }   
- }
- */
 
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {
- }
- */
 
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-    
 	NSUInteger row = [indexPath row];
 	NSString *urlString = [_linkList objectAtIndex:row];
     
-    if (row == 0){ //call
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
-        
-    } else if (row == 1){ //text
-        Class messageClass = (NSClassFromString(@"MFMessageComposeViewController"));
-        if (messageClass != nil)
+    if (self.isPhone) { //is a phone
+        if (row == 0) {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
+        }
+        else if (row == 1)
+        { 
+            [self sendText];
+        }
+        else if (row == 2)
+        { 
+            [self sendCustomTweet];
+        }
+        else if (row == 3)
+        { 
+            NSLog(@"Facebook select");
+            [self commentOnFB];
+        }
+        else if (row == 4)
+        { 
+            [self sendEmail];
+        }
+        else if (row == 5)
         {
-            // We must always check whether the current device is configured for sending emails
-            if ([messageClass canSendText])
-            {
-                [self displayMessageComposerSheet];
-            }
-            else
-            {
-                [self launchMessageAppOnDevice];
-            }
+            UITableViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AboutTableViewController"];
+            [self.navigationController pushViewController:detailViewController animated:YES];
+        }
+    } 
+    else { // is not a phone
+        if (row == 0)
+        {
+            [self sendCustomTweet];
+        }
+        else if (row == 1)
+        {
+            NSLog(@"Facebook select");
+            [self commentOnFB];
+        }
+        else if (row == 2)
+        {
+            [self sendEmail];
+        }
+        else if (row == 3)
+        {
+            UITableViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AboutTableViewController"];
+            [self.navigationController pushViewController:detailViewController animated:YES];
+        }
+    }
+	[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    
+}
+
+#pragma mark -
+#pragma mark Send SMS
+
+-(void)sendText
+{
+    Class messageClass = (NSClassFromString(@"MFMessageComposeViewController"));
+    if (messageClass != nil)
+    {
+        // We must always check whether the current device is configured for sending texts
+        if ([messageClass canSendText])
+        {
+            [self displayMessageComposerSheet];
         }
         else
         {
             [self launchMessageAppOnDevice];
         }
-    } else if(row == 2){ //Tweet
-        
-        [self sendCustomTweet];
-        
-    } else if (row == 4){ // Email
-        Class mailClass = (NSClassFromString(@"MFMailComposeViewController"));
-        if (mailClass != nil)
-        {
-            // We must always check whether the current device is configured for sending emails
-            if ([mailClass canSendMail])
-            {
-                [self displayMailComposerSheet];
-            }
-            else
-            {
-                [self launchMailAppOnDevice];
-            }
-        }
-        else
-        {
-            [self launchMailAppOnDevice];
-        }
-    } else if (row == 5){ //About
-        
-        AboutViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AboutViewController"];
-         // ...
-         // Pass the selected object to the new view controller.
-         [self.navigationController pushViewController:detailViewController animated:YES];
-
-    } else {
-	
-	//create URL, request, and webview.
-	NSURL *theURL = [NSURL URLWithString: urlString];
-	NSURLRequest *request = [NSURLRequest requestWithURL: theURL];
-	UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0,0,300,300)];
-	webView.scalesPageToFit = YES;
-	[webView setDelegate: self];
-	[webView loadRequest: request];
-	
-	
-	
-	//create view controlelr too, and push onto nav controller
-	UIViewController *newController = [[UIViewController alloc] init];
-	newController.view = webView;
-	
-	//activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-	//activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
-    //UIBarButtonItem * barButton = [[UIBarButtonItem alloc] initWithCustomView:activityIndicator];
-	//[newController navigationItem].rightBarButtonItem = barButton;
-    //[activityIndicator startAnimating];
-	
-	
-	//Pushes the new view stringByAppendingString:mymobileNO.titleLabel.text
-	[self.navigationController pushViewController:newController animated:YES];
-	}
-	[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-
+    }
+    else
+    {
+        [self launchMessageAppOnDevice];
+    }
 }
 
 #pragma mark -
@@ -315,8 +375,6 @@
     
 	// Set up recipients
 	NSArray *toRecipients = [NSArray arrayWithObject:@"07562612747"]; 
-
-	
 	[picker setRecipients:toRecipients];
 	
 	// Fill out the body text
@@ -333,23 +391,95 @@
     	switch (result)
     	{
     		case MessageComposeResultCancelled:
-    			[self.statusList replaceObjectAtIndex:1 withObject:@"Result: canceled"];
+    			[self.statusList replaceObjectAtIndex:1 withObject:@"Canceled"];
     			break;
     		case MessageComposeResultSent:
-                [self.statusList replaceObjectAtIndex:1 withObject:@"Result: sent"];
+                [self.statusList replaceObjectAtIndex:1 withObject:@"Sent"];
     			break;
     		case MessageComposeResultFailed:
-                [self.statusList replaceObjectAtIndex:1 withObject:@"Result: failed"];
+                [self.statusList replaceObjectAtIndex:1 withObject:@"Failed"];
     			break;
     		default:
-                [self.statusList replaceObjectAtIndex:1 withObject:@"Result: not sent"];
+                [self.statusList replaceObjectAtIndex:1 withObject:@"Not Sent"];
     			break;
     	}
 	[self dismissModalViewControllerAnimated:YES];
     [self.tableView reloadData];
-    //[self.tableView reloadInputViews];
 }
 
+#pragma mark -
+#pragma mark FaceBook
+
+-(void)commentOnFB {
+    // FBSample logic
+    // handler for button click, logs sessions in or out
+    // get the app delegate so that we can access the session property
+    ButeFMMainAppDelegate  *appDelegate = [[UIApplication sharedApplication]delegate];
+    NSLog(@"Got to the start of comment fb");
+    // get the app delegate so that we can access the session property
+    //SLAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    
+    // this button's job is to flip-flop the session from open to closed
+    if (appDelegate.session.isOpen) {
+        NSLog(@"FBSession is open");
+        // if a user logs out explicitly, we delete any cached token information, and next
+        // time they run the applicaiton they will be presented with log in UX again; most
+        // users will simply close the app or switch away, without logging out; this will
+        // cause the implicit cached-token login to occur on next launch of the application
+        [appDelegate.session closeAndClearTokenInformation];
+        
+    } else {
+        if (appDelegate.session.state != FBSessionStateCreated) {
+            // Create a new, logged out session.
+            NSLog(@"Created log out Session");
+            appDelegate.session = [[FBSession alloc] init];
+        }
+        
+        NSLog(@"Openign new FBSession");
+        // if the session isn't open, let's open it now and present the login UX to the user
+        [appDelegate.session openWithCompletionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+            [self updateView];
+        }];
+    }
+    
+}
+
+// FBSample logic
+// main helper method to update the UI to reflect the current state of the session.
+- (void)updateView {
+    // get the app delegate, so that we can reference the session property
+    ButeFMMainAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    if (appDelegate.session.isOpen) {
+        // valid account UI is shown whenever the session is open
+        NSLog(@"FBSession is opened");
+        //Get the first cell of the first section
+        NSIndexPath *ip = [NSIndexPath indexPathForRow:self.facebookIndex inSection:0];
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:ip];
+        
+        [self.statusList replaceObjectAtIndex:self.facebookIndex withObject:@"Log Out"];
+
+        //Change the textLabel contents
+//        [[cell textLabel] setText:@"log out"];
+        NSLog(@"Log Out");
+        NSLog(@"%@",appDelegate.session.accessToken);
+    } else {
+        //Get the first cell of the first section
+        NSLog(@"FBSession not opened");
+        NSIndexPath *ip = [NSIndexPath indexPathForRow:self.facebookIndex inSection:0];
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:ip];
+        
+        [self.statusList replaceObjectAtIndex:self.facebookIndex withObject:@"Log In"];
+
+        //Change the textLabel contents
+//        [[cell textLabel] setText:@"log in"];
+        //self.cell1 = @"Log In";
+        
+        NSLog(@"No Token");//self.cell2 = @"No Token";
+        // login-needed account UI is shown whenever the session is closed
+    }
+    //Refresh the tableView
+    [self.tableView reloadData];
+}
 
 #pragma mark -
 #pragma mark Tweet
@@ -368,10 +498,10 @@
         
         switch (result) {
             case TWTweetComposeViewControllerResultCancelled:
-                [self.statusList replaceObjectAtIndex:2 withObject:@"Tweet canceled"];
+                [self.statusList replaceObjectAtIndex:self.tweetIndex withObject:@"Canceled"];
                 break;
             case TWTweetComposeViewControllerResultDone:
-                   [self.statusList replaceObjectAtIndex:2 withObject:@"Tweet sent"];
+                [self.statusList replaceObjectAtIndex:self.tweetIndex withObject:@"Sent"];
                 break;
             default:
                 break;
@@ -384,6 +514,31 @@
     [self presentModalViewController:tweetViewController animated:YES];
 }
 
+
+#pragma mark - 
+#pragma mark Send Email
+
+-(void)sendEmail
+{
+    Class mailClass = (NSClassFromString(@"MFMailComposeViewController"));
+    if (mailClass != nil)
+    {
+        // We must always check whether the current device is configured for sending emails
+        if ([mailClass canSendMail])
+        {
+            [self displayMailComposerSheet];
+        }
+        else
+        {
+            [self launchMailAppOnDevice];
+        }
+    }
+    else
+    {
+        [self launchMailAppOnDevice];
+    }
+}
+
 #pragma mark -
 #pragma mark Workaround Email
 
@@ -391,7 +546,7 @@
 -(void)launchMailAppOnDevice
 {
 	NSString *recipients = @"mailto:butefm@yahoo.co.uk,studio@butefm.com&subject=Email from Bute FM App";
-	NSString *body = @"&body=Sent from the Bute FM iPhone App";
+	NSString *body = @"&body=Hey, ";
 	
 	NSString *email = [NSString stringWithFormat:@"%@%@", recipients, body];
 	email = [email stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -414,7 +569,7 @@
 	[picker setToRecipients:toRecipients];
 	
 	// Fill out the email body text
-	NSString *emailBody = @"Sent from the Bute FM iPhone App";
+	NSString *emailBody = @"Hey, ";
 	[picker setMessageBody:emailBody isHTML:NO];
 	[self presentModalViewController:picker animated:YES];
 }
@@ -426,34 +581,36 @@
 	switch (result)
 	{
 		case MFMailComposeResultCancelled:
-            [self.statusList replaceObjectAtIndex:4 withObject:@"Result: canceled"];
+            [self.statusList replaceObjectAtIndex:self.emailIndex withObject:@"canceled"];
             break;
 		case MFMailComposeResultSaved:
-			[self.statusList replaceObjectAtIndex:4 withObject:@"Result: Saved"];
+			[self.statusList replaceObjectAtIndex:self.emailIndex withObject:@"Saved"];
             break;
 		case MFMailComposeResultSent:
-			[self.statusList replaceObjectAtIndex:4 withObject:@"Result: Sent"];
+			[self.statusList replaceObjectAtIndex:self.emailIndex withObject:@"Sent"];
             break;
 		case MFMailComposeResultFailed:
-			[self.statusList replaceObjectAtIndex:4 withObject:@"Result: Failed"];
+			[self.statusList replaceObjectAtIndex:self.emailIndex withObject:@"Failed"];
             break;
 		default:
-			[self.statusList replaceObjectAtIndex:4 withObject:@"Result: Not Sent"];
+			[self.statusList replaceObjectAtIndex:self.emailIndex withObject:@"Not Sent"];
             break;
 	}
 	[self dismissModalViewControllerAnimated:YES];
-    [[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]] detailTextLabel] setAlpha:1];
-    [[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]] textLabel] layer] ;
+    [[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.emailIndex inSection:0]] textLabel ] setAlpha:1];
+     
+     
+     
     [self.tableView reloadData];
     
     [UIView animateWithDuration:3 animations:^{
-        [[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]] detailTextLabel] setAlpha:0];
+        [[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.emailIndex inSection:0]] detailTextLabel] setAlpha:0];
         
     }
     completion:^(BOOL finished){
                 [UIView animateWithDuration:1 animations:^{
-                              [[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]]                   textLabel]  setCenter:CGPointMake(70, 22)];
-                    [self.statusList replaceObjectAtIndex:4 withObject:@""];
+                              [[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.emailIndex inSection:0]]                   textLabel]  setCenter:CGPointMake(70, 22)];
+                    [self.statusList replaceObjectAtIndex:self.emailIndex withObject:@""];
                          }
                  ];
     }];

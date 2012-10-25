@@ -11,20 +11,26 @@
 #import <MessageUI/MFMailComposeViewController.h>
 #import <Twitter/Twitter.h>
 #import <Accounts/Accounts.h>
+#import "CustomDrawnCell.h"
 
 @interface contactTableViewController : UITableViewController <UIWebViewDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
 
-@property (nonatomic, strong) NSArray *list;
-@property (nonatomic, strong) NSArray *linkList;
-@property (nonatomic, strong) NSArray *imageNameList;
+@property (nonatomic, strong) NSMutableArray *list;
+@property (nonatomic, strong) NSMutableArray *linkList;
+@property (nonatomic, strong) NSMutableArray *imageNameList;
 @property (nonatomic, strong) NSMutableArray *statusList;
+@property (nonatomic) bool isPhone;
 
 
+-(void)sendText;
 -(void)displayMessageComposerSheet;
 -(void)launchMessageAppOnDevice;
+-(void)sendEmail;
 -(void)displayMailComposerSheet;
 -(void)launchMailAppOnDevice;
 -(void)sendCustomTweet;
+-(void)commentOnFB;
+
 
 
 @end

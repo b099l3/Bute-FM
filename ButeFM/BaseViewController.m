@@ -50,6 +50,7 @@
     sender.highlighted = YES;
     sender.selected = YES;   
     [_centreButton setBackgroundImage:[UIImage imageNamed:@"buteFMButtonH.png"] forState:UIControlStateNormal];
+
 }
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
